@@ -34,6 +34,7 @@
         %form.new_message
           .input-box
             %input.input-box__text{type: "text", placeholder: "type a message"}
-            %label.input-box__image
+            %label.input-box__image{for: "file_image"}
               %i.fa.fa-image
+              %input#file_image{type: "file"}
           %input.send{type: "submit", value: "Send"}

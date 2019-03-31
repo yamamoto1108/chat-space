@@ -133,13 +133,20 @@
 			.input-box {
 				margin: 10px;
 				float: left;
+				position: relative;
 				.input-box__text {
 					height: 50px;
+					padding-right: 40px;
 					font-size: 16px;
 					color: $chatMainTextColor;
 				}
 				.input-box__image {
-
+					position: absolute;
+					top: 15px;
+					right: 10px;
+					#file_image {
+						display: none;
+					}
 				}
 			}
 			.send {
