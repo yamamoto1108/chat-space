@@ -9,8 +9,10 @@
         .side-header__box
           %p.side-header__box__user-name yamamoto
           %ul.side-header__box__menu
-            %li.side-header__box__menu__edit-user edit
-            %li.side-header__box__menu__new-group new
+            %li.side-header__box__menu__edit-user
+              %i.fa.fa-edit
+            %li.side-header__box__menu__new-group
+              %i.fa.fa-cog
 
       .groups
         =render partial: "group"
@@ -32,5 +34,6 @@
         %form.new_message
           .input-box
             %input.input-box__text{type: "text", placeholder: "type a message"}
-            %label.input-box__image image
+            %label.input-box__image
+              %i.fa.fa-image
           %input.send{type: "submit", value: "Send"}
