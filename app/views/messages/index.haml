@@ -13,6 +13,7 @@
             %li.side-header__box__menu__new-group new
 
       .groups
+        =render partial: "group"
 
     .chat-main
 
@@ -25,6 +26,7 @@
         .main-header__edit-btn Edit
 
       .messages
+        =render partial: "message"
 
       .form
         %form.new_message
