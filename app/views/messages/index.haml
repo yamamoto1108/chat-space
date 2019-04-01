@@ -1,40 +1,38 @@
-.flash-box
+.wrapper
 
-  .wrapper
+  .chat-side
 
-    .chat-side
+    .side-header
 
-      .side-header
+      .side-header__box
+        %p.side-header__box__user-name yamamoto
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__edit-user
+            %i.fa.fa-edit
+          %li.side-header__box__menu__new-group
+            %i.fa.fa-cog
 
-        .side-header__box
-          %p.side-header__box__user-name yamamoto
-          %ul.side-header__box__menu
-            %li.side-header__box__menu__edit-user
-              %i.fa.fa-edit
-            %li.side-header__box__menu__new-group
-              %i.fa.fa-cog
+    .groups
+      =render partial: "group"
 
-      .groups
-        =render partial: "group"
+  .chat-main
 
-    .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group a
+        %ul.main-header__left-box__member-list Member :
+        %li.main-header__left-box__member-list__member yamamoto
 
-      .main-header
-        .main-header__left-box
-          %h2.main-header__left-box__current-group a
-          %ul.main-header__left-box__member-list Member :
-          %li.main-header__left-box__member-list__member yamamoto
+      .main-header__edit-btn Edit
 
-        .main-header__edit-btn Edit
+    .messages
+      =render partial: "message"
 
-      .messages
-        =render partial: "message"
-
-      .form
-        %form.new_message
-          .input-box
-            %input.input-box__text{type: "text", placeholder: "type a message"}
-            %label.input-box__image{for: "file_image"}
-              %i.fa.fa-image
-              %input#file_image{type: "file"}
-          %input.send{type: "submit", value: "Send"}
+    .form
+      %form.new_message
+        .input-box
+          %input.input-box__text{type: "text", placeholder: "type a message"}
+          %label.input-box__image{for: "file_image"}
+            %i.fa.fa-image
+            %input#file_image{type: "file"}
+        %input.send{type: "submit", value: "Send"}
