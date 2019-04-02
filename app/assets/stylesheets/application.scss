@@ -137,6 +137,7 @@
 				position: relative;
 				&__text {
 					height: 50px;
+					width: calc(100vw - 600px);
 					padding-right: 40px;
 					padding-left: 10px;
 					font-size: 16px;
