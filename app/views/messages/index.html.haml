@@ -1,18 +1,18 @@
 .wrapper
 
-  .new-group グループを作成しました
-
   .chat-side
 
     .side-header
 
       .side-header__box
-        %p.side-header__box__user-name yamamoto
+        %p.side-header__box__user-name
+          = current_user.name
         %ul.side-header__box__menu
-          %li.side-header__box__menu__edit-user
-            %i.fa.fa-edit
           %li.side-header__box__menu__new-group
-            %i.fa.fa-cog
+            %i.fa.fa-edit
+          %li.side-header__box__menu__edit-user
+            = link_to edit_user_path(current_user) do
+              = fa_icon 'cog', class: 'icon'
 
     .groups
       =render partial: "group"

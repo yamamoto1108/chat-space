@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get 'messages' => 'messages#index'
+  devise_for :users
+  resources :users, only: [:edit, :update]
+  root 'messages#index'
 end

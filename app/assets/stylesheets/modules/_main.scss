@@ -32,8 +32,8 @@
 			height: 40px;
 			line-height: 40px;
 			margin-top: 28px;
-			border: solid 1px #38aef0;
-			color: #38aef0;
+			border: solid 1px $light_blue;
+			color: $light_blue;
 		}
 	}
 
@@ -96,7 +96,7 @@
 				width: 100px;
 				line-height: 50px;
 				float: right;
-				background-color: #38aef0;
+				background-color: $light_blue;
 				color: white;
 				margin-left: 15px;
 				margin-top: 10px;

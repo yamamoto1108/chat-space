@@ -22,12 +22,15 @@
 			}
 
 		    &__menu {
-		    	&__edit-user {
-		    		float: left;
-		    	}
 		    	&__new-group {
 		    		float: left;
+		    	}
+		    	&__edit-user {
+		    		float: left;
 		    		margin-left: 5px;
+		    		.icon {
+		    			color: $chatSideTextColor;
+		    		}
 		    	}
 		    }
 
