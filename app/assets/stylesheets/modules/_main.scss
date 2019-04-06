@@ -33,7 +33,10 @@
 			line-height: 40px;
 			margin-top: 28px;
 			border: solid 1px $light_blue;
-			color: $light_blue;
+			.btn {
+				text-decoration: none;
+				color: $light_blue;
+			}
 		}
 	}
 

@@ -26,7 +26,8 @@
         %ul.main-header__left-box__member-list Member :
         %li.main-header__left-box__member-list__member yamamoto
 
-      .main-header__edit-btn Edit
+      .main-header__edit-btn
+        = link_to "Edit", edit_group_path(current_user), class: 'btn'
 
     .messages
       =render partial: "message"
