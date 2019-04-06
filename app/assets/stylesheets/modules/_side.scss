@@ -24,6 +24,9 @@
 		    &__menu {
 		    	&__new-group {
 		    		float: left;
+		    		.icon {
+		    			color: $chatSideTextColor;
+		    		}
 		    	}
 		    	&__edit-user {
 		    		float: left;
