@@ -3,4 +3,5 @@
     = link_to group_messages_path(group) do
       .group__group-name
         = group.name
-      .group__group-message messaageなし
+      .group__group-message
+        = group.show_last_message
