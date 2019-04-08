@@ -41,11 +41,11 @@
 	}
 
 	.messages {
-		padding: 0 40px;
-		height: calc(100vh - 170px);
+		padding: 46px 40px 0 40px;
+		height: calc(100vh - 216px);
 		background-color: #fafafa;
+		overflow: scroll;
 		.message {
-			padding-top: 46px;
 			&__user {
 				font-size: 16px;
 				font-weight: bold;
@@ -72,36 +72,41 @@
 		padding: 0 40px;
 		background-color: #eeeeee;
 		height: 70px;
-		.input-box {
-			margin: 10px;
-			float: left;
-			position: relative;
-			&__text {
-				height: 50px;
-				width: calc(100vw - 600px);
-				padding-right: 40px;
-				padding-left: 10px;
-				font-size: 16px;
-				color: $chatMainTextColor;
-			}
-			&__image {
-				position: absolute;
-				top: 15px;
-				right: 10px;
-				#file_image {
-					display: none;
+		&__new-message {
+			.box {
+				position: relative;
+				float: left;
+				&__text {
+					height: 50px;
+					width: calc(100vw - 600px);
+					margin-top: 10px;
+					padding-right: 40px;
+					padding-left: 10px;
+					font-size: 16px;
+					color: $chatMainTextColor;
+				}
+				&__image {
+					.icon {
+						position: absolute;
+						top: 30px;
+						right: 10px;
+					}
+					#message_image {
+						display: none;
+					}
 				}
 			}
-		}
-		.send {
-			height: 50px;
-			width: 100px;
-			line-height: 50px;
-			float: right;
-			background-color: $light_blue;
-			color: white;
-			margin-left: 15px;
-			margin-top: 10px;
+
+			.form__send {
+				height: 50px;
+				width: 100px;
+				line-height: 50px;
+				float: right;
+				background-color: $light_blue;
+				color: white;
+				margin-left: 15px;
+				margin-top: 10px;
+			}
 		}
 	}
 }

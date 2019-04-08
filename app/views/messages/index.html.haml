@@ -30,13 +30,14 @@
         = link_to "Edit", edit_group_path(current_user), class: 'btn'
 
     .messages
-      =render partial: "message"
+      =render partial: "message", collection: @messages
 
     .form
-      .input-box
-      = form_for [@group, @message] do |f|
-        = f.text_field :content, class = 'input-box__text', placeholder: "type a message"
-        = f.label :image, class = 'input-box__image'
-          %i.fa.fa-image
-          %input#file_image{type: "file"}
-      = f.submit "Send", class: "send"
+      .form__new-message
+        = form_for [@group, @message] do |f|
+          .box
+            = f.text_field :body, class: 'box__text', placeholder: "type a message"
+            = f.label :image, class: 'box__image' do
+              = fa_icon 'image', class: 'icon'
+              = f.file_field :image, id: 'message_image'
+          = f.submit 'Send', class: 'form__send'
