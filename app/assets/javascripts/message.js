@@ -30,5 +30,9 @@ $(function() {
       $('.messages').append(html)
       $('.box__text').val('')
     })
+
+    .fail(function(){
+      alert('error');
+    })
   });
 });
