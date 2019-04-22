@@ -19,7 +19,7 @@
       =render partial: "message", collection: @messages
 
     .form
-      .form__new-message
+      .form__new-message#new_message
         = form_for [@group, @message] do |f|
           .box
             = f.text_field :body, class: 'box__text', placeholder: "type a message"
