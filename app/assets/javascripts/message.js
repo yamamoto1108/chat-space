@@ -2,11 +2,7 @@ $(function() {
   $(document).on('turbolinks:load', function () {
     function buildHTML(message) {
       var img = ""
-        if (message.image.url !== null) {
-          img = `<img src ="${ message.image.url }"></p>`
-        } else {
-          img = `</p>`
-        }
+        img = (message.image.url == null)?`</p>`:`<img src ="${ message.image.url }"></p>`;
       var html = `<div class="message">
                     <p class="message__user">
                       ${ message.user_name }
@@ -37,8 +33,8 @@ $(function() {
   
       .done(function(data){
         var html = buildHTML(data);
-        $('.messages').append(html)
-        $('.box__text').val('')
+        $('.messages').append(html);
+        $('#new_message')[0].reset();
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}); 
       })
   
