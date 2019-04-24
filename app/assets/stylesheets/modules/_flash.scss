@@ -1,11 +1,11 @@
 .notification {
-	color: $chatSideTextColor;
-	text-align: center;
-	.notice {
-		background-color: $light_blue;
-	}
+  color: $chatSideTextColor;
+  text-align: center;
+  .notice {
+    background-color: $light_blue;
+  }
 
-	.alert {
-		background-color: $alert_orange;
-	}
+  .alert {
+    background-color: $alert_orange;
+  }
 }

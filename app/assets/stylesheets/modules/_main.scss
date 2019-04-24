@@ -1,112 +1,112 @@
 .chat-main {
-	width: calc(100vw - 300px);
-	float: left;
-	.main-header {
-		height: 100px;
-		padding: 0 40px;
-		display: flex;
-		justify-content: space-between;
-		border-bottom: solid 1px #eeeeee;
-		&__left-box {
-			&__current-group {
-				margin-top: 35px;
-				margin-bottom: 15px;
-				font-size: 20px;
-				color: #333333;
-			}
-			&__member-list {
-				float: left;
-				font-size: 12px;
-				color: $chatMainDateColor;
-			}
-			.main-header__left-box__member-list__member {
-				font-size: 12px;
-				color: $chatMainDateColor;
-				float: left;
-				list-style: none;
-				padding-left: 5px;
-			}
-		}
-		&__edit-btn {
-			padding: 0 20px;
-			height: 40px;
-			line-height: 40px;
-			margin-top: 28px;
-			border: solid 1px $light_blue;
-			.btn {
-				text-decoration: none;
-				color: $light_blue;
-			}
-		}
-	}
+  width: calc(100vw - 300px);
+  float: left;
+  .main-header {
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #eeeeee;
+    &__left-box {
+      &__current-group {
+        margin-top: 35px;
+        margin-bottom: 15px;
+        font-size: 20px;
+        color: #333333;
+      }
+      &__member-list {
+        float: left;
+        font-size: 12px;
+        color: $chatMainDateColor;
+      }
+      .main-header__left-box__member-list__member {
+        font-size: 12px;
+        color: $chatMainDateColor;
+        float: left;
+        list-style: none;
+        padding-left: 5px;
+      }
+    }
+    &__edit-btn {
+      padding: 0 20px;
+      height: 40px;
+      line-height: 40px;
+      margin-top: 28px;
+      border: solid 1px $light_blue;
+      .btn {
+        text-decoration: none;
+        color: $light_blue;
+      }
+    }
+  }
 
-	.messages {
-		padding: 46px 40px 0 40px;
-		height: calc(100vh - 216px);
-		background-color: #fafafa;
-		overflow: scroll;
-		.message {
-			&__user {
-				font-size: 16px;
-				font-weight: bold;
-				color: $chatMainTextColor;
-				float: left;
-			}
-			&__date {
-				font-size: 12px;
-				color: $chatMainDateColor;
-				float: left;
-				padding-left: 5px;
-			}
-			&__text {
-				font-size: 14px;
-				color: $chatMainTextColor;
-				padding-top: 10px;
-				padding-bottom: 40px;
-				clear: both;
-			}
-		}
-	}
+  .messages {
+    padding: 46px 40px 0 40px;
+    height: calc(100vh - 216px);
+    background-color: #fafafa;
+    overflow: scroll;
+    .message {
+      &__user {
+        font-size: 16px;
+        font-weight: bold;
+        color: $chatMainTextColor;
+        float: left;
+      }
+      &__date {
+        font-size: 12px;
+        color: $chatMainDateColor;
+        float: left;
+        padding-left: 5px;
+      }
+      &__text {
+        font-size: 14px;
+        color: $chatMainTextColor;
+        padding-top: 10px;
+        padding-bottom: 40px;
+        clear: both;
+      }
+    }
+  }
 
-	.form {
-		padding: 0 40px;
-		background-color: #eeeeee;
-		height: 70px;
-		&__new-message {
-			.box {
-				position: relative;
-				float: left;
-				&__text {
-					height: 50px;
-					width: calc(100vw - 600px);
-					margin-top: 10px;
-					padding-right: 40px;
-					padding-left: 10px;
-					font-size: 16px;
-					color: $chatMainTextColor;
-				}
-				&__image {
-					.icon {
-						position: absolute;
-						top: 30px;
-						right: 10px;
-					}
-					#message_image {
-						display: none;
-					}
-				}
-			}
+  .form {
+    padding: 0 40px;
+    background-color: #eeeeee;
+    height: 70px;
+    &__new-message {
+      .box {
+        position: relative;
+        float: left;
+        &__text {
+          height: 50px;
+          width: calc(100vw - 600px);
+          margin-top: 10px;
+          padding-right: 40px;
+          padding-left: 10px;
+          font-size: 16px;
+          color: $chatMainTextColor;
+        }
+        &__image {
+          .icon {
+            position: absolute;
+            top: 30px;
+            right: 10px;
+          }
+          #message_image {
+            display: none;
+          }
+        }
+      }
 
-			.form__send {
-				height: 50px;
-				width: 100px;
-				line-height: 50px;
-				float: right;
-				background-color: $light_blue;
-				color: white;
-				margin-left: 15px;
-				margin-top: 10px;
-			}
-		}
-	}
+      .form__send {
+        height: 50px;
+        width: 100px;
+        line-height: 50px;
+        float: right;
+        background-color: $light_blue;
+        color: white;
+        margin-left: 15px;
+        margin-top: 10px;
+      }
+    }
+  }
 }
