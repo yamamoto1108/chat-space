@@ -1,8 +1,7 @@
 $(function() {
   $(document).on('turbolinks:load', function () {
     function buildHTML(message) {
-      var img = ""
-        img = (message.image.url == null)?`</p>`:`<img src ="${ message.image.url }"></p>`;
+      var img = (message.image.url == null)? `</p>`:`<img src ="${ message.image.url }"></p>`;
       var html = `<div class="message">
                     <p class="message__user">
                       ${ message.user_name }
