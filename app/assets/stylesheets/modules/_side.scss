@@ -1,66 +1,66 @@
 .wrapper {
-	height: 100vh;
-	width: 100vw;
+  height: 100vh;
+  width: 100vw;
 }
 
 .chat-side {
-	float: left;
-	width: 300px;
-	color: $chatSideTextColor;
-	.side-header {
-		background-color: #253141;
-		height: 100px;
-		line-height: 100px;
-		padding: 0 20px;
+  float: left;
+  width: 300px;
+  color: $chatSideTextColor;
+  .side-header {
+    background-color: #253141;
+    height: 100px;
+    line-height: 100px;
+    padding: 0 20px;
 
-		&__box {
-			display: flex;
-		    justify-content: space-between;
-			&__user-name {
-				font-size: 16px;
-		        font-weight: bold;
-			}
+    &__box {
+      display: flex;
+        justify-content: space-between;
+      &__user-name {
+        font-size: 16px;
+            font-weight: bold;
+      }
 
-		    &__menu {
-		    	&__new-group {
-		    		float: left;
-		    		.icon {
-		    			color: $chatSideTextColor;
-		    		}
-		    	}
-		    	&__edit-user {
-		    		float: left;
-		    		margin-left: 5px;
-		    		.icon {
-		    			color: $chatSideTextColor;
-		    		}
-		    	}
-		    }
+        &__menu {
+          &__new-group {
+            float: left;
+            .icon {
+              color: $chatSideTextColor;
+            }
+          }
+          &__edit-user {
+            float: left;
+            margin-left: 5px;
+            .icon {
+              color: $chatSideTextColor;
+            }
+          }
+        }
 
-		}
-	}
-	.groups {
-		background-color: #2f3e51;
-		padding: 0 20px;
-		height: calc(100vh - 100px);
-		overflow: scroll;
-		.group {
-			padding-top: 20px;
-			text-decoration: none;
-			color: $chatSideTextColor;
-			&__group-name {
-				padding-bottom: 5px;
-				font-size: 15px;
-				font-weight: bold;
-				text-decoration: none;
-			    color: $chatSideTextColor;
-			}
-			&__group-message {
-				padding-bottom: 40px;
-				font-size: 11px;
-				text-decoration: none;
-			    color: $chatSideTextColor;
-			}
-		}
-	}
+    }
+  }
+  .groups {
+    background-color: #2f3e51;
+    padding: 0 20px;
+    height: calc(100vh - 100px);
+    overflow: scroll;
+    .group {
+      padding-top: 20px;
+      text-decoration: none;
+      color: $chatSideTextColor;
+      &__group-name {
+        padding-bottom: 5px;
+        font-size: 15px;
+        font-weight: bold;
+        text-decoration: none;
+          color: $chatSideTextColor;
+      }
+      &__group-message {
+        padding-bottom: 40px;
+        font-size: 11px;
+        text-decoration: none;
+          color: $chatSideTextColor;
+      }
+    }
+  }
 }
