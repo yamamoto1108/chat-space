@@ -2,8 +2,7 @@ $(function() {
   $(document).on('turbolinks:load', function () {
     function buildHTML(message) {
       var img = ""
-      console.log(message.image)
-        if (message.image !== null) {
+        if (message.image.url !== null) {
           img = `<img src ="${ message.image.url }"></p>`
         } else {
           img = `</p>`
@@ -24,10 +23,9 @@ $(function() {
     }
  
     $('#new_message').on('submit', function(e) {
-      e.preventDefault();
-      var formData = new FormData(this);
-      var url = $(this).attr('action')
-      // console.log(url)
+      e.preventDefault();  //HTML通信を止める
+      var formData = new FormData(this);  //form入力内容取得
+      var url = $(this).attr('action')  //form_forの遷移先url取得
       $.ajax({
         url: url,
         type: "POST",
@@ -38,7 +36,6 @@ $(function() {
       })
   
       .done(function(data){
-        // console.log(data)
         var html = buildHTML(data);
         $('.messages').append(html)
         $('.box__text').val('')
@@ -48,6 +45,7 @@ $(function() {
       .fail(function(){
         alert('error');
       })
+      return false; //連続投稿可能にする
     });
   });
 });
