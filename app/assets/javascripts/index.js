@@ -7,16 +7,16 @@ $(function() {
     function appendList(user) {
       var html = `<div class="chat-group-user clearfix search">
                     <p class="chat-group-user__name">${ user.name }</p>
-                    <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" id="${ user.id }" data-user-name="${ user.name }">追加</div>
+                    <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" id="${ user.id }a" data-user-name="${ user.name }">追加</div>
                   </div>`
       search_list.append(html)
     }
 
     function appendUser(user) {
-      var html = `<div class='chat-group-user clearfix js-chat-member' id='${ user.name }'>
+      var html = `<div class='chat-group-user clearfix js-chat-member' id='${ user.id }b' >
                     <input name='group[user_ids][]' type='hidden' value='${ user.name }'>
                     <p class='chat-group-user__name'>${ user.name }</p>
-                    <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' id='${ user.name }'>削除</div>
+                    <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' id='${ user.id }c'>削除</div>
                   </div>`
       selected_list.append(html)
     }
@@ -42,13 +42,13 @@ $(function() {
           users.forEach(function(user) {
             appendList(user);
             
-            $(".chat-group-user.clearfix.search").on("click", `#${user.id}`, function() {
+            $(".chat-group-user.clearfix.search").on("click", `#${user.id}a`, function() {
               appendUser(user);
               $(".chat-group-user.clearfix.search").remove();
             });
 
-            $(".chat-group-user.clearfix.js-chat-member").on("click", `#${user.name}`, function() {
-              $(`#${user.name}`).remove();
+            $(".chat-group-user.clearfix.js-chat-member").on("click", `#${user.id}c`, function() {
+              $(`#${user.id}b`).remove();
             });
             
           });
