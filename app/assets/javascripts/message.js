@@ -63,11 +63,14 @@ $(function() {
       return html;
     }
     
+    group_id = $('.main-header__left-box__current-group').data('group-id');
+    console.log(group_id)
+    var url = '/groups/' + `${group_id}` + '/api/messages';
     $.ajax({
-      url: location.href,
+      url: url,
       type: 'GET',
       dataType: 'json',
-      data: {id: last_message_id}
+      data: {id: last_message_id, group_id: group_id}
     })
 
     .done(function(messages) {
