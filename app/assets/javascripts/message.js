@@ -64,7 +64,6 @@ $(function() {
     }
     
     group_id = $('.main-header__left-box__current-group').data('group-id');
-    console.log(group_id)
     var url = '/groups/' + `${group_id}` + '/api/messages';
     $.ajax({
       url: url,
@@ -74,11 +73,9 @@ $(function() {
     })
 
     .done(function(messages) {
-      console.log('success');
       var insertHTML = '';
       if (messages.length !== 0) {
         messages.forEach(function(message) {
-          console.log(message.body)
           insertHTML += buildHTML(message);
           $('.messages').append(insertHTML);
           $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}); 
