@@ -2,7 +2,7 @@ $(function() {
   $(document).on('turbolinks:load', function () {
     function buildHTML(message) {
       var img = (message.image.url == null)? `</p>`:`<img src ="${ message.image.url }"></p>`;
-      var html = `<div class="message">
+      var html = `<div class="message" data-id="${ message.id }">
                     <p class="message__user">
                       ${ message.user_name }
                     </p>
@@ -43,4 +43,49 @@ $(function() {
       return false; //連続投稿可能にする
     });
   });
+
+  var reloadMessages = function() {
+    last_message_id = $('.message:last').data('id');
+    function buildHTML(message) {
+      var img = (message.image.url == null)? `</p>`:`<img src ="${ message.image.url }"></p>`;
+      var html = `<div class="message" data-id="${ message.id }">
+                    <p class="message__user">
+                      ${ message.user_name }
+                    </p>
+                    <p class="message__date">
+                      ${ message.created_at }
+                    </p>
+                    <p class="message__text">
+                      ${ message.body }
+                      <br>
+                      ${ img }
+                  </div>`
+      return html;
+    }
+    
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+
+    .done(function(messages) {
+      console.log('success');
+      var insertHTML = '';
+      if (messages.length !== 0) {
+        messages.forEach(function(message) {
+          console.log(message.body)
+          insertHTML += buildHTML(message);
+          $('.messages').append(insertHTML);
+          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}); 
+        });
+      }
+    })
+
+    .fail(function() {
+      console.log('error');
+    })
+  };
+  setInterval(reloadMessages, 5000);
 });
