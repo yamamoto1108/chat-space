@@ -4,7 +4,7 @@ $(function() {
     var search_list = $("#user-search-result");
     var selected_list = $("#chat-group-users");
 
-    function appendList(user) {
+    function appendList(user) {  //検索結果の表示
       var html = `<div class="chat-group-user clearfix search" id="${ user.id }_search">
                     <p class="chat-group-user__name">${ user.name }</p>
                     <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" id="${ user.id }_add" data-user-id="${ user.id }" data-user-name="${ user.name }">追加</div>
@@ -12,7 +12,7 @@ $(function() {
       search_list.append(html)
     }
 
-    function appendUser(user) {
+    function appendUser(user) {  //チャットメンバーの表示
       var html = `<div class='chat-group-user clearfix js-chat-member' id='${ user.id }_list' >
                     <input name='group[user_ids][]' type='hidden' value='${ user.id }'>
                     <p class='chat-group-user__name'>${ user.name }</p>
@@ -27,7 +27,7 @@ $(function() {
     }
 
     $("#user-search-field").on("keyup", function() {
-      var input = $("#user-search-field").val();
+      var input = $("#user-search-field").val();  //検索フォーム入力内容を取得
       
       $.ajax({
         type: 'GET',
@@ -41,14 +41,14 @@ $(function() {
         if (users.length !== 0) {
           users.forEach(function(user) {
             appendList(user);
-            
-            $(".chat-group-user.clearfix.search").on("click", `#${user.id}_add`, function() {
+            //検索リストで追加ボタンがクリックされたとき
+            $(".chat-group-user.clearfix.search").on("click", `#${user.id}_add`, function() {  //ajaxで後から追加された要素にもイベントを発火させる際の記述方法
               appendUser(user);
-              $(`#${user.id}_search`).remove();
+              $(`#${user.id}_search`).remove();  //メンバーに追加されたユーザーを検索リストから削除
             });
-
+            //メンバーリストで削除ボタンがクリックされたとき
             $(".chat-group-user.clearfix.js-chat-member").on("click", `#${user.id}_delete`, function() {
-              $(`#${user.id}_list`).remove();
+              $(`#${user.id}_list`).remove();  //削除されたユーザーをメンバーリストから削除
             });
             
           });
