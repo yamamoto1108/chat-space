@@ -84,7 +84,7 @@ $(function() {
     })
 
     .fail(function() {
-      alert('自動更新に失敗しました');
+      console.log('error')
     })
   };
   setInterval(reloadMessages, 5000);  //5秒ごとに更新
