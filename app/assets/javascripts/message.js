@@ -46,46 +46,51 @@ $(function() {
 
   var reloadMessages = function() {
     last_message_id = $('.message:last').data('id');  //現在画面に表示されている最後のメッセージidを定義。カスタムデータ取得
-    function buildHTML(message) {
-      var img = (message.image.url == null)? `</p>`:`<img src ="${ message.image.url }"></p>`;
-      var html = `<div class="message" data-id="${ message.id }">
-                    <p class="message__user">
-                      ${ message.user_name }
-                    </p>
-                    <p class="message__date">
-                      ${ message.created_at }
-                    </p>
-                    <p class="message__text">
-                      ${ message.body }
-                      <br>
-                      ${ img }
-                  </div>`
-      return html;
-    }
-    
     group_id = $('.main-header__left-box__current-group').data('group-id');  //現在のグループidを定義。カスタムデータ取得
-    var url = '/groups/' + `${group_id}` + '/api/messages';
-    $.ajax({
-      url: url,
-      type: 'GET',
-      dataType: 'json',
-      data: {id: last_message_id, group_id: group_id}  //コントローラに渡すデータ
-    })
-
-    .done(function(messages) {
-      var insertHTML = '';
-      if (messages.length !== 0) {
-        messages.forEach(function(message) {  //前回の通信時から追加されたmessageを一つずつ取り出す
-          insertHTML += buildHTML(message);
-          $('.messages').append(insertHTML);
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}); 
-        });
+    var url = location.href;
+    
+    if (url.match(/\/groups\/\d+\/messages/)) {
+      function buildHTML(message) {
+        var img = (message.image.url == null)? `</p>`:`<img src ="${ message.image.url }"></p>`;
+        var html = `<div class="message" data-id="${ message.id }">
+                      <p class="message__user">
+                        ${ message.user_name }
+                      </p>
+                      <p class="message__date">
+                        ${ message.created_at }
+                      </p>
+                      <p class="message__text">
+                        ${ message.body }
+                        <br>
+                        ${ img }
+                    </div>`
+        return html;
       }
-    })
-
-    .fail(function() {
-      console.log('error')
-    })
+      
+      var api_url = '/groups/' + `${group_id}` + '/api/messages';
+      $.ajax({
+        url: api_url,
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_message_id, group_id: group_id}  //コントローラに渡すデータ
+      })
+  
+      .done(function(messages) {
+        console.log('success')
+        var insertHTML = '';
+        if (messages.length !== 0) {
+          messages.forEach(function(message) {  //前回の通信時から追加されたmessageを一つずつ取り出す
+            insertHTML += buildHTML(message);
+            $('.messages').append(insertHTML);
+            $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}); 
+          });
+        }
+      })
+  
+      .fail(function() {
+        console.log('error')
+      })
+    }
   };
   setInterval(reloadMessages, 5000);  //5秒ごとに更新
 });
