@@ -46,11 +46,6 @@ $(function() {
               appendUser(user);
               $(`#${user.id}_search`).remove();  //メンバーに追加されたユーザーを検索リストから削除
             });
-            //メンバーリストで削除ボタンがクリックされたとき
-            $(".chat-group-user.clearfix.js-chat-member").on("click", `#${user.id}_delete`, function() {
-              $(`#${user.id}_list`).remove();  //削除されたユーザーをメンバーリストから削除
-            });
-            
           });
           
         } else {
@@ -61,6 +56,11 @@ $(function() {
       .fail(function() {
         alert('ユーザー検索に失敗しました');
       })
+    });
+
+    //メンバーリストで削除ボタンがクリックされたとき
+    $("#chat-group-users").on("click", ".js-remove-btn", function() {
+      $(this).parent().remove();  //削除されたユーザーをメンバーリストから削除
     });
   });
 });
